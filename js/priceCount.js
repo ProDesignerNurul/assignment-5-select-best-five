@@ -1,40 +1,36 @@
-document.getElementById('calculate-btn').addEventListener('click', function(){
-
-    const perPlayerPrice = document.getElementById('per-player-price');
+function getInputValueById(element) {
+    const perPlayerPrice = document.getElementById(element);
     const perPlayerString = perPlayerPrice.value;
     const newPlayerPrice = parseFloat(perPlayerString);
     perPlayerPrice.value = '';
+    return newPlayerPrice;
+}
 
-    const playerExpenses = document.getElementById('player-expenses');
-    const playerExpensesString = playerExpenses.innerText;
-    const previousExpensesTotal = parseFloat(playerExpensesString);
 
-    const totalPlayerPrice = newPlayerPrice * 5;
-    const totalPrice = previousExpensesTotal + totalPlayerPrice;
-    playerExpenses.innerText = totalPrice;
+function getTextValueById(textValueById) {
+    const textElement = document.getElementById(textValueById);
+    const textElementString = textElement.innerText;
+    const textElementNumber = parseFloat(textElementString);
+    return textElementNumber;
+
+}
+
+
+
+
+document.getElementById('calculate-btn').addEventListener('click', function(){
+    const totalPlayerExpenses = document.getElementById('player-expenses');
+    const perPlayerPrice = getInputValueById('per-player-price');
+    const playerExpenses = perPlayerPrice * 5;
+    totalPlayerExpenses.innerText = playerExpenses;
 })
 
 document.getElementById('calculate-toatl-btn').addEventListener('click', function(){
-    const managerPrice = document.getElementById('manager');
-    const managerPriceString = managerPrice.value;
-    const manager = parseFloat(managerPriceString);
-    managerPrice.value = '';
-
-    const coachPrice = document.getElementById('coach');
-    const coachPriceString = coachPrice.value;
-    const coach = parseFloat(coachPriceString);
-    coachPrice.value = '';
-
-
-    const totalAmountElement = document.getElementById('total-amount');
-    const totalAmountString = totalAmountElement.innerText;
-    const totalAmount = parseFloat(totalAmountString);
-    totalAmountElement.innerText = '';
-
-    const managerCoachPrice = manager + coach;
-
-    const lastTotalAmount = totalAmount + managerCoachPrice;
-    totalAmountElement.innerText = lastTotalAmount;
-
-
+    const totalCoast = document.getElementById('total-amount');
+    const manager = getInputValueById('manager');
+    const coach = getInputValueById('coach');
+    const totalPlayerExpenses = getTextValueById('player-expenses');
+    const totalGamePrice = manager + coach + totalPlayerExpenses;
+    totalCoast.innerText = totalGamePrice;
 })
+
