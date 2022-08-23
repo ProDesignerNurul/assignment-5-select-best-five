@@ -30,48 +30,72 @@
 //     playerNameDisplay(playersArray);
 // }
 
+// ---------------------------------------------------------------------------------------------
 
-document.getElementById('player-btn-1').addEventListener('click', function(){
-    const listContainer = document.getElementById('player-display');
+// document.getElementById('player-btn-1').addEventListener('click', function(){
+//     const listContainer = document.getElementById('player-display');
 
+//     const li = document.createElement('li');
+//     li.innerText = 'M Salah';
+//     listContainer.appendChild(li);
+// })
+// document.getElementById('player-btn-2').addEventListener('click', function(){
+//     const listContainer = document.getElementById('player-display');
+
+//     const li = document.createElement('li');
+//     li.innerText = 'Ronaldo';
+//     listContainer.appendChild(li);
+// })
+// document.getElementById('player-btn-3').addEventListener('click', function(){
+//     const listContainer = document.getElementById('player-display');
+
+//     const li = document.createElement('li');
+//     li.innerText = 'Cretiano Ronaldo';
+//     listContainer.appendChild(li);
+// })
+// document.getElementById('player-btn-4').addEventListener('click', function(){
+//     const listContainer = document.getElementById('player-display');
+
+//     const li = document.createElement('li');
+//     li.innerText = 'Leonel Messi';
+//     listContainer.appendChild(li);
+// })
+// document.getElementById('player-btn-5').addEventListener('click', function(){
+//     const listContainer = document.getElementById('player-display');
+
+//     const li = document.createElement('li');
+//     li.innerText = 'Mbappe';
+//     listContainer.appendChild(li);
+// })
+// document.getElementById('player-btn-6').addEventListener('click', function(){
+//     const listContainer = document.getElementById('player-display');
+
+//     const li = document.createElement('li');
+//     li.innerText = 'Mascherano';
+//     listContainer.appendChild(li);
+// })
+
+
+// ----------------------------------------------------------------------------------
+
+function addPlayers (playerList) {
+    const player = playerList.parentNode.parentNode.children[0].innerText;
+    console.log(player);
     const li = document.createElement('li');
-    li.innerText = 'M Salah';
-    listContainer.appendChild(li);
-})
-document.getElementById('player-btn-2').addEventListener('click', function(){
-    const listContainer = document.getElementById('player-display');
+    li.innerText = player;
 
-    const li = document.createElement('li');
-    li.innerText = 'Ronaldo';
-    listContainer.appendChild(li);
-})
-document.getElementById('player-btn-3').addEventListener('click', function(){
-    const listContainer = document.getElementById('player-display');
-
-    const li = document.createElement('li');
-    li.innerText = 'Cretiano Ronaldo';
-    listContainer.appendChild(li);
-})
-document.getElementById('player-btn-4').addEventListener('click', function(){
-    const listContainer = document.getElementById('player-display');
-
-    const li = document.createElement('li');
-    li.innerText = 'Leonel Messi';
-    listContainer.appendChild(li);
-})
-document.getElementById('player-btn-5').addEventListener('click', function(){
-    const listContainer = document.getElementById('player-display');
-
-    const li = document.createElement('li');
-    li.innerText = 'Mbappe';
-    listContainer.appendChild(li);
-})
-document.getElementById('player-btn-6').addEventListener('click', function(){
-    const listContainer = document.getElementById('player-display');
-
-    const li = document.createElement('li');
-    li.innerText = 'Mascherano';
-    listContainer.appendChild(li);
-})
-
+    const ol = document.getElementById('ol');
+    const ulLength = ol.children.length;
+    
+    if (ulLength < 5) {
+        ol.appendChild(li);
+        playerList.disabled = true;
+        playerList.style.backgroundColor = '#c73452';
+    }
+    else {
+        alert('Please Do Not Select More Then Five');
+        return;
+    }
+ 
+}
 
